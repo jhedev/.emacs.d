@@ -19,9 +19,7 @@
         haskell-mode
         powerline
         es-lib
-        auto-complete
-	    ))
-
+        auto-complete))
 
 (el-get 'sync el-get-sources)
 
@@ -54,5 +52,5 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;;Auto-complete
 (require 'auto-complete)
-

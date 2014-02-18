@@ -1,4 +1,0 @@
-(:name es-windows
-	       :type github
-	       :package "sabof/es-windows"
-	       :description "es-windows")
