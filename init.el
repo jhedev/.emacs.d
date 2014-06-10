@@ -12,17 +12,25 @@
 
 (setq el-get-sources
       '(evil
+	evil-leader
         key-chord
         color-theme
         monokai-theme
         flycheck
         haskell-mode
+        structured-haskell-mode
         powerline
         es-lib
-        auto-complete))
+        auto-complete
+	     yasnippet))
 
 (el-get 'sync el-get-sources)
 
+;;evil leader
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+(evil-leader/set-key 
+  "b" 'switch-to-buffer)
 ;;Enable evil mode
 (require 'evil)
 (evil-mode 1)
@@ -59,3 +67,18 @@
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
+
+(setq default-directory "~")
+
+(require 'haskell-mode)
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+
+(iswitchb-mode 1)
+
+(require 'flycheck)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
+(require' yasnippet)
+(yas-global-mode 1)
